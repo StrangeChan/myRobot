@@ -44,5 +44,16 @@ int main(void)
 	Control_Init();				//机器人初始化
 	TIM_Init(100-1,8400-1);//定时读取解码器，时间0.01f
 	EXTIX_Init();
+	
+	while(1)
+	{
+		//SetPWM(10,3,30);
+		RobotGoTo(0,10,0);
+		//GetMotorVelocity(0,100,0);
+		//RobotRotate(-99);
+		//LCD_Show_pwm();
+	}
+	
+	
 }
 

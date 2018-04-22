@@ -72,9 +72,9 @@ void SetPWM(float V1,float V2,float V3)
 	//向CCR1寄存器写值   发出PWM波
  	TIM_SetCompare1(TIM3,(uint32_t)V1);
 	
- 	TIM_SetCompare1(TIM3,(uint32_t)V2);
+ 	TIM_SetCompare2(TIM3,(uint32_t)V2);
 	
- 	TIM_SetCompare1(TIM3,(uint32_t)V3);	
+ 	TIM_SetCompare3(TIM3,(uint32_t)V3);	
 }
 
 //给定球场坐标速度求得轮子的速度
@@ -125,7 +125,7 @@ void GetMotorVelocity(float vx,float vy,float w)
 			BasketballRobot.Velocity[i] += tem[i][j]*V[j];
 	}
 	
-	//LCD_Show_pwm();
+	LCD_Show_pwm();
 }
 
 //给自身坐标系速度求得轮子的速度
@@ -493,16 +493,32 @@ void GetPosition2(void)
 	
 	//除去自传偏差
 	l1 = BasketballRobot.v[0]*0.01f - ENCODER_L*D_theta;
-	l2 = BasketballRobot.v[2]*0.01f - ENCODER_L*D_theta;
+	l1 = -l1;
 	
+	l2 = BasketballRobot.v[1]*0.01f - ENCODER_L*D_theta;
+	l2 =-l2;
 	
-	//1/tan(a) = 1.732*l1 /(l1-2*l2)
-	cot_A = 1.73205081f*l1/(l1-l2);
+	if((l1-2*l2) == 0)
+	{
+		BasketballRobot.X += l1;
+		BasketballRobot.Y += 0;
+	}
+	else if(l1 ==0)
+	{
+		BasketballRobot.X += 0;
+		BasketballRobot.Y += l2/2*1.73205081f;
+	}
+	else
+	{
+		//1/tan(a) = 1.732*l1 /(l1-2*l2)
+		cot_A = 1.73205081f*l1/(l1-2*l2);
 
-	BasketballRobot.X += l1*theta_inv[0][0]+l1*cot_A*theta_inv[1][0];
-	BasketballRobot.Y += l1*theta_inv[0][1]+l1*cot_A*theta_inv[1][1];
+		BasketballRobot.X += l1*theta_inv[0][1]+l1*cot_A*theta_inv[0][0];
+		BasketballRobot.Y += l1*theta_inv[1][1]+l1*cot_A*theta_inv[1][0];
+		
+		BasketballRobot.W = D_theta*100;
+	}		
 	
-	BasketballRobot.W = D_theta*100;
 	
 
 }
@@ -533,7 +549,7 @@ static float AdjustAngleV(float D_Theta)
 		Vw=D_Theta;
 	}
 	else 
-		Vw=Vw;
+		//Vw=Vw;
 	
 	//小于60°大于30°匀速
 	//实际PWM为100
@@ -561,6 +577,8 @@ static float AdjustAngleV(float D_Theta)
 		else
 			Vw = -40;
 	}
+	if(D_Theta == 0)
+		Vw = 0;
 	
 	return Vw;
 }
@@ -695,14 +713,14 @@ static float AdjustVx(float D_X)
 void RobotRotate(float theta)
 {
 	float D_Theta;
-	u32 Vw=0;        //W大于0 逆时针
+	float Vw=0;        //W大于0 逆时针
 
-	D_Theta = theta-BasketballRobot.ThetaD;
-	
+	//D_Theta = theta-BasketballRobot.ThetaD;
+	D_Theta = theta-0;
 	Vw = AdjustAngleV(D_Theta);
 	
 	
-	while(D_Theta>1)
+	while(D_Theta>1||D_Theta < -1)
 	{
 		GetMotorVelocity(0,0,Vw);	
 		
