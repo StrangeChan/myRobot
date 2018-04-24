@@ -460,8 +460,12 @@ void GetPosition(void)
 	}
 	
 	
-	BasketballRobot.X += BasketballRobot.Vx*0.01f;
-	BasketballRobot.Y += BasketballRobot.Vy*0.01f;
+	BasketballRobot.x += BasketballRobot.Vx*0.01f;
+	BasketballRobot.y += BasketballRobot.Vy*0.01f;
+	
+	//LCD_ShowNum(30,600,200,BasketballRobot.x,10,16
+	//LCD_Num(30,170+400,200,16,16,"SYMBOL:");
+	//(30+200+60,200,integer,10,16,0)
 }
 
 //坐标转换,两个里程计定位
@@ -488,33 +492,33 @@ void GetPosition2(void)
 	//theta_inv
 	//theta_inv[0][0]= sin(BasketballRobot.ThetaR);	theta_inv[0][1] = -sin(BasketballRobot.ThetaR);		
 	//theta_inv[1][0]= cos(BasketballRobot.ThetaR);	theta_inv[1][1] = cos(BasketballRobot.ThetaR);
-	theta_inv[0][0]= sin(BasketballRobot.ThetaR);	theta_inv[0][1] = -theta_inv[0][0];		
-	theta_inv[1][0]= cos(BasketballRobot.ThetaR);	theta_inv[1][1] = theta_inv[1][0];	
+	theta_inv[0][0]= cos(BasketballRobot.ThetaR);	theta_inv[0][1] = -theta_inv[1][0];		
+	theta_inv[1][0]= sin(BasketballRobot.ThetaR);	theta_inv[1][1] = theta_inv[0][0];	
 	
 	//除去自传偏差
-	l1 = BasketballRobot.v[0]*0.01f - ENCODER_L*D_theta;
+	l1 = BasketballRobot.v[0]*0.01f /*- ENCODER_L*D_theta*/;
 	l1 = -l1;
 	
-	l2 = BasketballRobot.v[1]*0.01f - ENCODER_L*D_theta;
-	l2 =-l2;
+	l2 = BasketballRobot.v[1]*0.01f /*- ENCODER_L*D_theta*/;
+	//l2 =-l2;
 	
-	if((l1-2*l2) == 0)
-	{
-		BasketballRobot.X += l1;
-		BasketballRobot.Y += 0;
-	}
-	else if(l1 ==0)
+//	if((l1-2*l2) == 0)
+//	{
+//		BasketballRobot.X += l1;
+//		BasketballRobot.Y += 0;
+//	}
+	if(l1 ==0)
 	{
 		BasketballRobot.X += 0;
-		BasketballRobot.Y += l2/2*1.73205081f;
+		BasketballRobot.Y += l2*2/1.73205081f;
 	}
 	else
 	{
-		//1/tan(a) = 1.732*l1 /(l1-2*l2)
-		cot_A = 1.73205081f*l1/(l1-2*l2);
+		//1/tan(a) = (l1-2*l2) /1.732*l1
+		cot_A = (l1+2.0f*l2)/(1.7320508f*l1);
 
-		BasketballRobot.X += l1*theta_inv[0][1]+l1*cot_A*theta_inv[0][0];
-		BasketballRobot.Y += l1*theta_inv[1][1]+l1*cot_A*theta_inv[1][0];
+		BasketballRobot.X += l1*theta_inv[0][0]+l1*cot_A*theta_inv[1][0];
+		BasketballRobot.Y += l1*theta_inv[0][1]+l1*cot_A*theta_inv[1][1];
 		
 		BasketballRobot.W = D_theta*100;
 	}		

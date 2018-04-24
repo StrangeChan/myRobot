@@ -7,7 +7,7 @@
 u8 time_out_flag=0;
 u8 count = 0;
 u8 counter=0;
-
+void LCD_Show_position2(void);
 float ll1[4]={0,0,0,0};
 float ll2[4]={0,0,0,0};
 float ll3[4]={0,0,0,0};
@@ -180,7 +180,8 @@ void TIM2_IRQHandler(void)
 	
 		
 	GetPosition2();
-		
+	//eGetPosition();
+	
 	if(count++ == 0)
 	{
 		LCD_Show_lcj();
@@ -196,10 +197,63 @@ void TIM2_IRQHandler(void)
 	else if(count == 4)
 	{
 		LCD_Show_position();
+		LCD_Show_position2();
 	}
 		
 }
 
-
+//œ‘ æX,Y,thetaŒª÷√
+void LCD_Show_position2(void)
+{
+	float tem;
+	u16 integer=0,decimal=0;
+	
+	tem = BasketballRobot.x;
+	if(tem<0)
+	{
+		tem = -tem;
+		LCD_ShowChar(100,200+340,'-',16,0);
+	}
+	else{
+		LCD_ShowChar(100,200+340,' ',16,0);
+	}
+	integer = (u32)tem;
+	decimal = (u32)((tem-integer)*1000);
+	LCD_ShowxNum(130,200+340,integer,3,16,0);
+	LCD_ShowChar(130+25,250+340,'.',16,0);
+	LCD_ShowxNum(130+36,250+340,decimal,3,16,0);
+	
+	tem = BasketballRobot.y;
+	if(tem<0)
+	{
+		tem = -tem;
+		LCD_ShowChar(100,250+360,'-',16,0);
+	}
+	else{
+		LCD_ShowChar(100,250+360,' ',16,0);
+	}
+	integer = (u32)tem;
+	decimal = (u32)((tem-integer)*1000);
+	LCD_ShowxNum(130,250+360,integer,3,16,0);
+	LCD_ShowChar(130+25,250+360,'.',16,0);
+	LCD_ShowxNum(130+36,250+360,decimal,3,16,0);
+	
+	tem = BasketballRobot.ThetaR;
+	if(tem<0)
+	{
+		tem = -tem;
+		LCD_ShowChar(100,250+380,'-',16,0);
+	}
+	else
+	{
+		LCD_ShowChar(100,250+380,' ',16,0);
+	}
+	integer = (u32)tem;
+	decimal = (u32)((tem-integer)*1000);
+	LCD_ShowxNum(130,250+380,integer,3,16,0);
+	LCD_ShowChar(130+25,250+380,'.',16,0);
+	LCD_ShowxNum(130+36,250+380,decimal,3,16,0);
+				
+}
 
 

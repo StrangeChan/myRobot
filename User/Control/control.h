@@ -36,10 +36,13 @@ struct ROBOT
 {
 	float X;		//机器人在坐标系中x坐标
 	float Y;		//机器人在坐标系中y坐标
+	float x;		//机器人在坐标系中x坐标
+	float y;		//机器人在坐标系中y坐标
 	float ThetaR;	//机器人正方向和y轴夹角 弧度
 	float ThetaD;	//机器人正方向和y轴夹角 角度
 	float Vx;		//机器人在坐标系x方向速度
 	float Vy;		//机器人在坐标系y方向速度
+	
 	float W;		//机器人角速度，顺时针正方向
 	float w[3];		//编码器的实际计数/4
 	float v[3];		//编码器所得速度

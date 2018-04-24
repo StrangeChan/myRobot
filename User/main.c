@@ -48,7 +48,7 @@ int main(void)
 	while(1)
 	{
 		//SetPWM(10,3,30);
-		RobotGoTo(0,10,0);
+		//RobotGoTo(0,10,0);
 		//GetMotorVelocity(0,100,0);
 		//RobotRotate(-99);
 		//LCD_Show_pwm();
