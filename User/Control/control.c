@@ -11,9 +11,17 @@ void Control_Init(void)
 	BasketballRobot.Y = 0;		//机器人在坐标系中y坐标
 	BasketballRobot.ThetaR = 0;	//机器人正方向和y轴夹角
 	BasketballRobot.ThetaR = 0;	//机器人正方向和y轴夹角
+	
 	BasketballRobot.Vx = 0;		//机器人在坐标系x方向速度
 	BasketballRobot.Vy = 0;		//机器人在坐标系y方向速度
 	BasketballRobot.W = 0;		//机器人角速度，顺时针正方向
+	
+	BasketballRobot.xPD.Kp = 0;
+	BasketballRobot.xPD.Kd = 0;	
+	BasketballRobot.yPD.Kp = 0;
+	BasketballRobot.yPD.Kd = 0;
+	BasketballRobot.wPD.Kp = 0;
+	BasketballRobot.wPD.Kd = 0;
 	
 	BasketballRobot.w[1] = 0;		//第一个编码器实际计数
 	BasketballRobot.w[2] = 0;		//第二个编码器实际计数
@@ -34,10 +42,10 @@ void Control_Init(void)
 	Vision.X = 0;
 	
 	SetPWM(0,0,0);
+	shoveMotor(STOP);
 	
-	MPU_Init();			//MPU6050初始化
-	MPU_Init();
-	MPU_Init();	
+	IMU_Init();			//MPU6050初始化
+	IMU_Init();	
 	
 }
 
@@ -47,7 +55,7 @@ void Control_Init(void)
 //计算公式： V = Vmax *（占空比*100 – 50） /50
 static void Velocity2PWM(float *V)
 {
-	*V=1000 - *V;//*V+=1000;
+	*V+=1000;//*V=1000 - *V;
 	if(*V>=1900)
 		*V=1900;
 	if(*V<=100)
@@ -176,7 +184,7 @@ void GetMotorVelocity_Self(float vx,float vy,float w)
 			BasketballRobot.Velocity[i] += tem[i][j]*V[j];
 	}
 	
-	//LCD_Show_pwm();
+	LCD_Show_pwm();
 }
 
 
@@ -190,6 +198,30 @@ void GetInfraredState(void)
 	}
 }
 
+//铲球电机状态
+void shoveMotor(shovemotor t)
+{
+	u16 speed = 2000;
+	
+	if(t == STOP)
+	{
+		TIM_SetCompare2(TIM9,0);
+		TIM_SetCompare1(TIM9,0);
+	}
+	else if(t == UP)
+	{
+		//CH1高电平,铲子向上，接黑线，电机反转
+		TIM_SetCompare2(TIM9,0);
+		TIM_SetCompare1(TIM9,speed);
+	}
+	else if(t == DOWM)
+	{
+		//CH2高电平,铲子向下，接红线，电机正转
+		TIM_SetCompare1(TIM9,0);
+		TIM_SetCompare2(TIM9,speed);
+	}
+	
+}
 
 //机械臂下降
 void Robot_armDown(void)
@@ -203,16 +235,15 @@ void Robot_armDown(void)
 	
 	if(LimitSwitchDowm==1)
 	{
-		TIM_SetCompare2(TIM9,MOTOR_STATIC_2);
-		TIM_SetCompare1(TIM9,MOTOR_STATIC_1);
+		shoveMotor(STOP);
 		return;
 	}
 	//EXTIX_Enable(1);
 	#ifdef ZQD_DEBUG
 	BEEP = 1;
 	#endif
-	TIM_SetCompare2(TIM9,W);  			//PE6
-	TIM_SetCompare1(TIM9,MOTOR_STATIC_1);			//PE5
+	shoveMotor(DOWM);
+	
 	LED1 = 1;
 	for(i=0;i<nms;i++)
 	{	  
@@ -221,8 +252,7 @@ void Robot_armDown(void)
 			for(t=0;t<0xff;t++);
 			if(LimitSwitchDowm==1)
 			{
-				TIM_SetCompare2(TIM9,MOTOR_STATIC_2);
-				TIM_SetCompare1(TIM9,3970);
+				shoveMotor(STOP);				
 				break;
 			}
 		}
@@ -230,8 +260,7 @@ void Robot_armDown(void)
 			if(LimitSwitchDowm == 1)
 				break;
 	}
-	TIM_SetCompare2(TIM9,MOTOR_STATIC_2);
-	TIM_SetCompare1(TIM9,MOTOR_STATIC_1);
+	shoveMotor(STOP);
 
 	#ifdef ZQD_DEBUG
 	BEEP = 0;
@@ -250,16 +279,15 @@ void Robot_armUp(void)
 	
 	if(LimitSwitchUp==1)
 	{
-		TIM_SetCompare2(TIM9,MOTOR_STATIC_2);
-		TIM_SetCompare1(TIM9,MOTOR_STATIC_1);
+		shoveMotor(STOP);
 		return ;
 	}
 	//EXTIX_Enable(0);
 	#ifdef ZQD_DEBUG
 	BEEP = 1;
 	#endif
-	TIM_SetCompare1(TIM9,W);		//PE6
-	TIM_SetCompare2(TIM9,MOTOR_STATIC_2);		//PE5
+	
+	shoveMotor(UP);
 	for(i=0;i<nms;i++)
 	{
 		if(LimitSwitchUp == 1)
@@ -267,8 +295,7 @@ void Robot_armUp(void)
 			for(t=0;t<0xff;t++);
 			if(LimitSwitchUp == 1)
 			{
-				TIM_SetCompare1(TIM9,MOTOR_STATIC_1);
-				TIM_SetCompare2(TIM9,MOTOR_STATIC_2);
+				shoveMotor(STOP);
 				break;
 			}
 		}
@@ -276,8 +303,7 @@ void Robot_armUp(void)
 			if(LimitSwitchUp == 1)
 				break;
 	}
-	TIM_SetCompare1(TIM9,MOTOR_STATIC_1);
-	TIM_SetCompare2(TIM9,MOTOR_STATIC_2);	
+	shoveMotor(STOP);
 
 	#ifdef ZQD_DEBUG
 	BEEP = 0;
@@ -285,246 +311,20 @@ void Robot_armUp(void)
 }
 
 
-//视觉数据处理
-u8 GetVisionData(void)
-{	
-	if(USART_RX_STA&0x8000)
-	{					   
-		//坐标位置信息
-		if(USART_RX_BUF[0]!=' ')
-			Vision.X = (USART_RX_BUF[0]-'0')*100;
-		else 
-			Vision.X = 0;
-		USART_RX_BUF[0] = ' ';
-		
-		if(USART_RX_BUF[1]!=' ')
-			Vision.X += (USART_RX_BUF[1]-'0')*10;
-		USART_RX_BUF[1] = ' ';
-		
-		if(USART_RX_BUF[2]!=' ')
-			Vision.X += (USART_RX_BUF[2]-'0');
-		USART_RX_BUF[2] = ' ';
-		
-		//深度信息
-		if(USART_RX_BUF[3]!=' ')
-			Vision.Depth=(USART_RX_BUF[3]-'0')*1000;
-		else 
-			Vision.Depth=0;
-		USART_RX_BUF[3] = ' ';
-		
-		if(USART_RX_BUF[4]!=' ')
-			Vision.Depth+=(USART_RX_BUF[4]-'0')*100;
-		USART_RX_BUF[4] = ' ';
-		
-		if(USART_RX_BUF[5]!=' ')
-			Vision.Depth+=(USART_RX_BUF[5]-'0')*10;
-		USART_RX_BUF[5] = ' ';
-		
-		if(USART_RX_BUF[6]!=' ')
-			Vision.Depth+=(USART_RX_BUF[6]-'0');
-		USART_RX_BUF[6] = ' ';
-
-		LCD_ShowString(30+200,420,200,16,16,"View :pix");	
-		LCD_ShowNum(30+200+48+8+45,420,LimitSwitchUp,4,16);		
-		LCD_ShowString(30+200,440,200,16,16,"View :length");	
-		LCD_ShowNum(30+200+48+8+45,440,Vision.Depth,4,16);	
-		
-		USART_RX_STA=0;
-		
-		receive=0;
-	}
-	
-	if(Vision.X<10 ||Vision.X >630)
-		return 0;
-	if(Vision.Depth<500)
-		return 0;
-	
-	return 1;
+//PD调整角速度
+static float adjustAngleV_PD(float D_Theta)
+{
+	float w;
 }
-
-//激光处理数据
-u8 GetRadarData(void)
+//PD调整Y轴速度
+static float adjustVy_PD(float D_Theta)
 {
 	
-	if(USART3_RX_STA&0x8000)
-	{					   
-		//得到此次接收到的数据长度
-		//len=USART_RX_STA&0x3fff;
-
-		
-		//距离信息
-		if(USART3_RX_BUF[0]!=' ')
-			Radar.Distance=(USART3_RX_BUF[0]-'0')*1000;
-		else 
-			Vision.Depth=0;
-		USART3_RX_BUF[0] = ' ';
-		
-		if(USART3_RX_BUF[1]!=' ')
-			Vision.Depth+=(USART3_RX_BUF[1]-'0')*100;
-		USART3_RX_BUF[1] = ' ';
-		
-		if(USART3_RX_BUF[2]!=' ')
-			Vision.Depth+=(USART3_RX_BUF[2]-'0')*10;
-		USART3_RX_BUF[2] = ' ';
-		
-		if(USART3_RX_BUF[3]!=' ')
-			Vision.Depth +=(USART3_RX_BUF[3]-'0');
-		USART3_RX_BUF[3] = ' ';
-		
-		//角度信息
-		if(USART3_RX_BUF[4]!=' ')
-			Radar.Angle=(USART3_RX_BUF[4]-'0')*100;
-		else 
-			Radar.Angle=0;
-		USART3_RX_BUF[4] = ' ';
-		if(USART3_RX_BUF[5]!=' ')
-			Radar.Angle+=(USART3_RX_BUF[5]-'0')*10;
-		USART3_RX_BUF[5] = ' ';
-		if(USART3_RX_BUF[6]!=' ')
-			Radar.Angle+=(USART3_RX_BUF[6]-'0');
-		USART3_RX_BUF[6] = ' ';
-
-		LCD_ShowString(30+200,460,200,16,16,"Radar:rad");	
-		LCD_ShowNum(30+200+48+8+45,460,Radar.Angle,4,16);		
-		LCD_ShowString(30+200,480,200,16,16,"Radar:length");	
-		LCD_ShowNum(30+200+48+8+45,480,Vision.Depth,4,16);	
-		
-		USART3_RX_STA=0;
-		receive3=0;
-	}
-	
-	if(Radar.Angle<240 || Radar.Angle >300) //原来&&
-		return 0;
-	if(Vision.Depth>4000)
-		return 0;
-	
-	return 1;
 }
-
-//坐标转换
-void GetPosition(void)
+//PD调整X轴速度
+static float adjustVx_PD(float D_Theta)
 {
-	//根据速度运算球场坐标
-	u8 i,j,k;
 	
-	float theta;
-	
-	float L_inv[3][3];
-	float theta_inv[3][3];
-	float tem[3][3];
-	
-	//取Theta采样中值
-	if(fabs(BasketballRobot.ThetaR - BasketballRobot.LastTheta) < PI)
-		theta = (BasketballRobot.ThetaR + BasketballRobot.LastTheta) / 2.0f;
-	else
-		theta = (BasketballRobot.ThetaR + BasketballRobot.LastTheta) / 2.0f + PI;
-	
-	BasketballRobot.LastTheta = BasketballRobot.ThetaR;
-	
-	//v(encoder)=L * Theta * V
-	//theta_inv
-	theta_inv[0][0]= cos(theta);	theta_inv[0][1] = -sin(theta);		theta_inv[0][2] = 0;
-	theta_inv[1][0]= sin(theta);	theta_inv[1][1] = cos(theta);			theta_inv[1][2] = 0;
-	theta_inv[2][0]= 0;			theta_inv[2][1] = 0;				theta_inv[2][2] = 1;
-	//		[-cos(0)		-sin(0)		ENCODER_L]-1
-	//L_inv=	[-cos(120) 	-sin(120)		ENCODER_L]
-	//		[-cos(-120)	-sin(-120)	ENCODER_L]
-	L_inv[0][0] = -0.666666666666667;		L_inv[0][1] =  0.333333333333333;		L_inv[0][2] = 0.333333333333333;
-	L_inv[1][0] =  0;					L_inv[1][1] = -0.577350269189626;		L_inv[1][2] = 0.577350269189626;
-	L_inv[2][0] =  1.666666666666667;		L_inv[2][1] =  1.666666666666667;		L_inv[2][2] = 1.666666666666667;
-	
-	//矩阵相乘
-	for(i=0;i<3;i++)
-	{
-		for(j=0;j<3;j++)
-		{
-			tem[i][j] = 0;
-			for(k=0;k<3;k++)
-				tem[i][j] += theta_inv[i][k] * L_inv[k][j];
-		}
-	}
-	
-	BasketballRobot.Vx = 0;
-	for(j=0;j<3;j++){
-		BasketballRobot.Vx += tem[0][j] * BasketballRobot.v[j];
-	}
-	
-	BasketballRobot.Vy = 0;
-	for(j=0;j<3;j++){
-		BasketballRobot.Vy += tem[1][j] * BasketballRobot.v[j];
-	}
-	
-	BasketballRobot.W = 0;
-	for(j=0;j<3;j++){
-		BasketballRobot.W += tem[2][j] * BasketballRobot.v[j];
-	}
-	
-	
-	BasketballRobot.x += BasketballRobot.Vx*0.01f;
-	BasketballRobot.y += BasketballRobot.Vy*0.01f;
-	
-	//LCD_ShowNum(30,600,200,BasketballRobot.x,10,16
-	//LCD_Num(30,170+400,200,16,16,"SYMBOL:");
-	//(30+200+60,200,integer,10,16,0)
-}
-
-//坐标转换,两个里程计定位
-void GetPosition2(void)
-{
-	//根据速度运算球场坐标
-
-	
-	float D_theta; //角度差
-	float cot_A;	//移动方向和自坐标系Y轴夹角a 余切
-	
-	float l1,l2;	//两里程计减去自旋偏差后数值
-	
-	float theta_inv[2][2]; //角度矩阵
-	
-	
-	//取角度差
-	
-	D_theta = BasketballRobot.ThetaR - BasketballRobot.LastTheta;
-	BasketballRobot.LastTheta = BasketballRobot.ThetaR;
-	
-	//|xd yd|=|x0 y0| + |L1 L1/tan(a)|*Theta
-	
-	//theta_inv
-	//theta_inv[0][0]= sin(BasketballRobot.ThetaR);	theta_inv[0][1] = -sin(BasketballRobot.ThetaR);		
-	//theta_inv[1][0]= cos(BasketballRobot.ThetaR);	theta_inv[1][1] = cos(BasketballRobot.ThetaR);
-	theta_inv[0][0]= cos(BasketballRobot.ThetaR);	theta_inv[0][1] = -theta_inv[1][0];		
-	theta_inv[1][0]= sin(BasketballRobot.ThetaR);	theta_inv[1][1] = theta_inv[0][0];	
-	
-	//除去自传偏差
-	l1 = BasketballRobot.v[0]*0.01f /*- ENCODER_L*D_theta*/;
-	l1 = -l1;
-	
-	l2 = BasketballRobot.v[1]*0.01f /*- ENCODER_L*D_theta*/;
-	//l2 =-l2;
-	
-//	if((l1-2*l2) == 0)
-//	{
-//		BasketballRobot.X += l1;
-//		BasketballRobot.Y += 0;
-//	}
-	if(l1 ==0)
-	{
-		BasketballRobot.X += 0;
-		BasketballRobot.Y += l2*2/1.73205081f;
-	}
-	else
-	{
-		//1/tan(a) = (l1-2*l2) /1.732*l1
-		cot_A = (l1+2.0f*l2)/(1.7320508f*l1);
-
-		BasketballRobot.X += l1*theta_inv[0][0]+l1*cot_A*theta_inv[1][0];
-		BasketballRobot.Y += l1*theta_inv[0][1]+l1*cot_A*theta_inv[1][1];
-		
-		BasketballRobot.W = D_theta*100;
-	}		
-	
-	
-
 }
 
 //根据偏差大小调整角速度
@@ -773,6 +573,24 @@ void RobotGoTo(float X_I,float Y_I,float Theta_I)
 	RobotRotate(Theta_I);
 }
 
+u8 DownShotUp(void)
+{
+	Robot_armDown();
+	CHARGE = 0;
+	if(LimitSwitchDowm == 1)
+	{
+		CHARGE = 0;
+		delay_ms(500);
+		SHOT = 1;
+		delay_ms(500);
+		SHOT = 0;
+		
+		return 0;
+	}
+	
+	Robot_armUp();
+	return 1;
+}
 
 
 

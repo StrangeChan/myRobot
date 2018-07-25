@@ -1,0 +1,9 @@
+{
+    "files.encoding": "gb2312",
+    "files.associations": {
+        "tim.h": "c",
+        "get_info.h": "c",
+        "usart.h": "c",
+        "stm32f4xx_it.h": "c"
+    }
+}

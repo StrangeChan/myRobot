@@ -1,0 +1,9 @@
+
+*.crf
+*.o
+*.d
+*.o
+*.lnp
+*.d
+*.o
+Objects/control.o

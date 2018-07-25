@@ -8,7 +8,8 @@
 #include "GPIO.h"
 #include "MPU6050.h"
 #include "remote.h"
-#include "timer.h"
+#include "tim.h"
+#include "get_info.h"
 #include <math.h>
 
 #define PI 		3.141592654f
@@ -31,21 +32,33 @@
 #define DIS_RADAR 2500	//Àº¿ğÀ×´ï¶¨Î»¾àÀë
 #define DIS_VISION 280	//Àº¿ğÊÓ¾õ¶¨Î»¾àÀë
 
+//PD²ÎÊı
+typedef struct
+{
+	float Kp;
+	float Kd;
+}PD;
 
 struct ROBOT
 {
 	float X;		//»úÆ÷ÈËÔÚ×ø±êÏµÖĞx×ø±ê
 	float Y;		//»úÆ÷ÈËÔÚ×ø±êÏµÖĞy×ø±ê
-	float x;		//»úÆ÷ÈËÔÚ×ø±êÏµÖĞx×ø±ê
-	float y;		//»úÆ÷ÈËÔÚ×ø±êÏµÖĞy×ø±ê
+	//float x;		//»úÆ÷ÈËÔÚ×ø±êÏµÖĞx×ø±ê
+	//float y;		//»úÆ÷ÈËÔÚ×ø±êÏµÖĞy×ø±ê
 	float ThetaR;	//»úÆ÷ÈËÕı·½ÏòºÍyÖá¼Ğ½Ç »¡¶È
 	float ThetaD;	//»úÆ÷ÈËÕı·½ÏòºÍyÖá¼Ğ½Ç ½Ç¶È
+
 	float Vx;		//»úÆ÷ÈËÔÚ×ø±êÏµx·½ÏòËÙ¶È
-	float Vy;		//»úÆ÷ÈËÔÚ×ø±êÏµy·½ÏòËÙ¶È
-	
+	float Vy;		//»úÆ÷ÈËÔÚ×ø±êÏµy·½ÏòËÙ¶È	
 	float W;		//»úÆ÷ÈË½ÇËÙ¶È£¬Ë³Ê±ÕëÕı·½Ïò
-	float w[3];		//±àÂëÆ÷µÄÊµ¼Ê¼ÆÊı/4
+	
+	PD xPD;			//»úÆ÷ÈËÔÚ×ø±êÏµx·½Ïò PD
+	PD yPD;
+	PD wPD;
+	
+	float w[3];		//±àÂëÆ÷µÄÊµ¼Ê¼ÆÊı
 	float v[3];		//±àÂëÆ÷ËùµÃËÙ¶È
+	
 	float Velocity[3];	//ÂÖ×ÓµÄËÙ¶È
 	float LastTheta;	//ÉÏÒ»Ê±¿Ì£¬»úÆ÷ÈËtheta½Ç
 	float theta_offset;	//½Ç¶ÈÆ«²î½ÃÕı
@@ -54,19 +67,38 @@ struct ROBOT
 //½ÓÊÕÀ×´ïÊı¾İ£¬¼«×ø±ê
 struct RADAR
 {
-	u32 Distance;  //¾àÀë
+	uint16_t RX_STA;
 	
-	u32 Angle;	//½Ç¶È
-};	
+	uint8_t  RX_BUF[20];
+	
+	uint32_t Distance;  //¾àÀë
+	
+	uint32_t Angle;	//½Ç¶È
+	
+	u8 State;	//×´Ì¬
+};		
 
 //½ÓÊÕÊÓ¾õÊı¾İ
 struct VISION
 {
-	u32 Depth;	//Éî¶È£¬×İÖá
+	uint16_t RX_STA;
 	
-	u32 X;		//XÎ»ÖÃ£¬ºáÖá
+	uint8_t  RX_BUF[20];
+	
+	uint32_t Depth;	//Éî¶È£¬×İÖá
+	
+	uint32_t X;		//XÎ»ÖÃ£¬ºáÖá
+	
+	u8 State;	//×´Ì¬
 };
 
+//²ùÇòµç»úÔËĞĞ×´Ì¬
+typedef enum
+{
+	STOP = 0,
+	UP,
+	DOWM
+}shovemotor;	
 
 extern struct ROBOT BasketballRobot;
 
@@ -77,7 +109,7 @@ extern struct VISION Vision;
 void Control_Init(void);		//»úÆ÷ÈË³õÊ¼»¯
 
 
-static void Velocity2PWM(float *V);		//µç»úËÙ¶È×ª»»³ÉPWMÊıÖµ£¬Ô­Àí¿´µç»úÇı¶¯°åÊÖ²á
+static void Velocity2PWM(float *V);			//µç»úËÙ¶È×ª»»³ÉPWMÊıÖµ£¬Ô­Àí¿´µç»úÇı¶¯°åÊÖ²á
 void SetPWM(float V1,float V2,float V3); 	//ÉèÖÃÈı¸öÂÖ×ÓPWM
 
 void GetMotorVelocity(float vx,float vy,float w);		//¸ø¶¨Çò³¡×ø±êËÙ¶ÈÇóµÃÂÖ×ÓµÄËÙ¶È
@@ -85,19 +117,24 @@ void GetMotorVelocity_Self(float vx,float vy,float w);	//¸ø×ÔÉí×ø±êÏµËÙ¶ÈÇóµÃÂÖ×
 
 
 void GetInfraredState(void);	//»ñÈ¡ºìÍâ¿ª¹Ø×´Ì¬
-void Robot_armDown(void);	//»úĞµ±ÛÏÂ½µ
-void Robot_armUp(void);		//»úĞµ±ÛÉÏÉı
+void shoveMotor(shovemotor t);	//²ùÇòµç»ú×´Ì¬
+void Robot_armDown(void);		//»úĞµ±ÛÏÂ½µ
+void Robot_armUp(void);			//»úĞµ±ÛÉÏÉı
 
-u8 GetVisionData(void);		//ÊÓ¾õÊı¾İ´¦Àí
-u8 GetRadarData(void);		//¼¤¹â´¦ÀíÊı¾İ
-
-void GetPosition(void);		//×ø±ê×ª»»
-void GetPosition2(void);		//×ø±ê×ª»»,Á½¸öÀï³Ì¼Æ¶¨Î»
+u8 DownShotUp(void);
 
 
-static float AdjustAngleV(float D_Theta);		//¸ù¾İÆ«²î´óĞ¡µ÷Õû½ÇËÙ¶È
-static float AdjustVy(float D_Y);			//¸ù¾İÆ«²î´óĞ¡µ÷ÕûYÖáËÙ¶È
-static float AdjustVx(float D_X);			//¸ù¾İÆ«²î´óĞ¡µ÷ÕûXÖáËÙ¶È
+//uint8_t GetVisionData(void);		//ÊÓ¾õÊı¾İ´¦Àí
+//uint8_t GetRadarData(void);		//¼¤¹â´¦ÀíÊı¾İ
+
+
+static float adjustAngleV(float D_Theta);	//¸ù¾İÆ«²î´óĞ¡µ÷Õû½ÇËÙ¶È
+static float adjustVy(float D_Y);			//¸ù¾İÆ«²î´óĞ¡µ÷ÕûYÖáËÙ¶È
+static float adjustVx(float D_X);			//¸ù¾İÆ«²î´óĞ¡µ÷ÕûXÖáËÙ¶È
+
+static float adjustAngleV_PD(float D_Theta);	//¸ù¾İÆ«²î´óĞ¡µ÷Õû½ÇËÙ¶È
+static float adjustVy_PD(float D_Y);			//¸ù¾İÆ«²î´óĞ¡µ÷ÕûYÖáËÙ¶È
+static float adjustVx_PD(float D_X);			//¸ù¾İÆ«²î´óĞ¡µ÷ÕûXÖáËÙ¶È
 
 
 void RobotRotate(float theta);	//×ÔĞıÔË¶¯£¬¸ù¾İÎó²î½Ç¶È£¬×Ô¶¯µ÷½Ú

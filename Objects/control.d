@@ -43,8 +43,8 @@
 .\objects\control.o: .\User\Control\control.h
 .\objects\control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\control.o: .\User\GPIO\GPIO.h
-.\objects\control.o: .\User\MPU6050\MPU6050.h
-.\objects\control.o: .\User\Remote\remote.h
-.\objects\control.o: .\User\Timer\timer.h
-.\objects\control.o: .\User\Timer\hctl2020.h
+.\objects\control.o: .\User\MPU6050.h
+.\objects\control.o: .\User\remote.h
+.\objects\control.o: .\User\tim.h
+.\objects\control.o: User\Control\get_info.h
 .\objects\control.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

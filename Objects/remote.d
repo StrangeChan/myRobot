@@ -1,5 +1,5 @@
-.\objects\remote.o: User\Remote\remote.c
-.\objects\remote.o: User\Remote\remote.h
+.\objects\remote.o: User\remote.c
+.\objects\remote.o: User\remote.h
 .\objects\remote.o: .\User\System\sys.h
 .\objects\remote.o: .\User\stm32f4xx.h
 .\objects\remote.o: .\Libraries\CMSIS\core_cm4.h

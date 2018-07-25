@@ -1,5 +1,5 @@
-.\objects\pwm.o: User\PWM\PWM.c
-.\objects\pwm.o: User\PWM\PWM.h
+.\objects\pwm.o: User\PWM.c
+.\objects\pwm.o: User\PWM.h
 .\objects\pwm.o: .\User\System\sys.h
 .\objects\pwm.o: .\User\stm32f4xx.h
 .\objects\pwm.o: .\Libraries\CMSIS\core_cm4.h

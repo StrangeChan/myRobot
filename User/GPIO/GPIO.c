@@ -7,17 +7,17 @@ void BEEP_Init(void)
 {   
 	GPIO_InitTypeDef  GPIO_InitStructure;
 
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOF, ENABLE);//使能GPIOF时钟
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);//使能GPIOF时钟
   
 	//初始化蜂鸣器对应引脚GPIOF8
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;//下拉
-	GPIO_Init(GPIOF, &GPIO_InitStructure);//初始化GPIO
+	GPIO_Init(GPIOD, &GPIO_InitStructure);//初始化GPIO
 		
-	GPIO_ResetBits(GPIOF,GPIO_Pin_8);  //蜂鸣器对应引脚GPIOF8拉低， 
+	GPIO_ResetBits(GPIOD,GPIO_Pin_8);  //蜂鸣器对应引脚GPIOF8拉低， 
 }
 
 //LED IO初始化
@@ -107,6 +107,7 @@ void LimitSwitch_init(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;//普通输入模式
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100M
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1; //
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;//普通输入模式
@@ -121,12 +122,22 @@ void InfraredSwitch_Init(void)
 {
   GPIO_InitTypeDef  GPIO_InitStructure;
 
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOF, ENABLE);//使能GPIOE时钟
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);//使能GPIOE时钟
  
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9; //
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2; //
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;//普通输入模式
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100M
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
-  GPIO_Init(GPIOF, &GPIO_InitStructure);//初始化GPIOF9
+  GPIO_Init(GPIOC, &GPIO_InitStructure);//初始化GPIOF9
 
+}
+
+void ALL_GPIO_Init(void)
+{
+	LED_Init();
+	BEEP_Init();
+	Charge_Init();
+	ShotSwitch_Init();
+	LimitSwitch_init();
+	InfraredSwitch_Init();
 }

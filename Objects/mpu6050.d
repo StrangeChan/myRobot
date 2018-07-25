@@ -1,5 +1,5 @@
-.\objects\mpu6050.o: User\MPU6050\mpu6050.c
-.\objects\mpu6050.o: User\MPU6050\MPU6050.h
+.\objects\mpu6050.o: User\mpu6050.c
+.\objects\mpu6050.o: User\MPU6050.h
 .\objects\mpu6050.o: .\User\System\usart.h
 .\objects\mpu6050.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\mpu6050.o: .\User\stm32f4xx_conf.h

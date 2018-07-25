@@ -34,10 +34,9 @@
 .\objects\main.o: .\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h
 .\objects\main.o: .\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h
 .\objects\main.o: .\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h
-.\objects\main.o: .\User\Timer\HCTL2020.h
+.\objects\main.o: User\pwm.h
 .\objects\main.o: .\User\System\sys.h
-.\objects\main.o: .\User\PWM\pwm.h
-.\objects\main.o: .\User\Remote\remote.h
+.\objects\main.o: User\remote.h
 .\objects\main.o: .\User\GPIO\EXIT.h
 .\objects\main.o: .\User\Control\control.h
 .\objects\main.o: .\User\System\usart.h
@@ -47,6 +46,7 @@
 .\objects\main.o: .\User\Control\control.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\main.o: .\User\GPIO\GPIO.h
-.\objects\main.o: .\User\MPU6050\MPU6050.h
-.\objects\main.o: .\User\Timer\timer.h
+.\objects\main.o: .\User\MPU6050.h
+.\objects\main.o: .\User\tim.h
+.\objects\main.o: .\User\Control\get_info.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

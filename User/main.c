@@ -1,5 +1,4 @@
 #include "stm32f4xx.h"
-#include "HCTL2020.h"
 #include "pwm.h"
 #include "remote.h"
 #include "EXIT.h"
@@ -22,27 +21,18 @@ int main(void)
 	zhongquan_case=10;
 	changdi=1;					//左场右场
 	chengxu=0;
+
 	delay_init(168);  			//初始化延时函数
-	UART_Init(9600);	 		//串口初始化为9600
+	UART_Init(115200);	 		//串口初始化为9600
+
+	ALL_GPIO_Init();
 	PWM_Init();				//初始化PWM发生器
- 	LED_Init();			    	 //LED端口初始化
 	LCD_Init();					//LCD初始化
 	LCD_Show_Title();			//液晶屏显示内容初始化
-	//KEY_Init();					//按键初始化
-	hctl2020_init();			//初始化解码器
-	Remote_Init();				//红外遥控初始化
-	Charge_Init();				//弹射充电开关初始化
-	ShotSwitch_Init();				//弹射初始化
-	LimitSwitch_init();				//限位开关初始化
-	BEEP_Init();
-	InfraredSwitch_Init();				//红外开关初始化
-	//EXTIX_Init();
 
-
-	//TIM_SetCompare2(TIM5,280);	//给HCTL2020提供时钟信号，PA0
-	TIM_SetCompare2(TIM5,7);
 	Control_Init();				//机器人初始化
-	TIM_Init(100-1,8400-1);//定时读取解码器，时间0.01f
+	
+	TIM5_Init(10000,83);
 	EXTIX_Init();
 	
 	while(1)
@@ -50,7 +40,7 @@ int main(void)
 		//SetPWM(10,3,30);
 		//RobotGoTo(0,10,0);
 		//GetMotorVelocity(0,100,0);
-		//RobotRotate(-99);
+		RobotRotate(-99);
 		//LCD_Show_pwm();
 	}
 	

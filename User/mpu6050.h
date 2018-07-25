@@ -1,7 +1,7 @@
 #ifndef _MPU6050_H
 #define _MPU6050_H
 
-void MPU_Init(void);
+void IMU_Init(void);
 
 #endif
 

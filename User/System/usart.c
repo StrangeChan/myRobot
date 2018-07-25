@@ -179,8 +179,42 @@ void UART_Init(u32 bound){
 	
 }
 
+void usart_send_char(u8 c)
+{
+	USART_SendData(USART1,c);
+	while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);
+} 
+void SendToPc(u8 cmd,u16 data1,u16 data2,u16 data3)
+{
+	u8 sum =0;
+	
+	usart_send_char('@');
+	//sum += '@';
+	
+	usart_send_char('^');
+	//sum +=  '@';
+	
+	usart_send_char(cmd);
+	///sum += cmd;
+	
+	usart_send_char((data1>>8)&0xff);
+	usart_send_char((data1)&0xff);
+	
+	usart_send_char((data2>>8)&0xff);
+	usart_send_char(data2&0xff);
+	
+	usart_send_char((data3>>8)&0xff);
+	usart_send_char(data3&0xff);
+	
+	sum = '@'+  '^'+cmd+((data1>>8)&0xff)+((data1)&0xff)+((data2>>8)&0xff)+(data2&0xff)+((data3>>8)&0xff)+(data3&0xff);
+	
+	usart_send_char(sum);
+		
+}
 
-u8 receive = 0;
+
+
+/* u8 receive = 0;
 u8 End=0;
 u8  CheckSum_1 = 0;
 
@@ -235,61 +269,6 @@ void USART1_IRQHandler(void)
 	
 } 
 
-
-u8 receive2 = 0;		//接收完成标志
-u8 RecerveFlag = 0;		//接收状态标志
-u8  CheckSum_2 = 0;       	//校验和
-
-//串口2中断服务程序，陀螺仪数据
-void USART2_IRQHandler(void)                	
-{
-	u8 Res;
-
-	//接收中断(接收到的数据必须是0x0d 0x0a结尾)
-	if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)  
-	{
-		Res =USART_ReceiveData(USART2);//(USART1->DR);	//读取接收到的数据
-		
-		if((USART2_RX_STA&0x8000)==0)//接收未完成
-		{
-			if(Res == 0x55)
-			{
-				if(RecerveFlag == 0)
-				{
-					USART2_RX_STA=0;
-					  CheckSum_2 = 0;
-					RecerveFlag = 1;
-				}
-			}
-			else if(Res == 0x53)
-			{
-				if(RecerveFlag == 1)
-				{
-					RecerveFlag = 2;
-				}
-			}
-			
-			if(RecerveFlag != 0)
-			{
-				if(USART2_RX_STA < 10)
-				{
-					USART2_RX_BUF[USART2_RX_STA&0X3FFF]=Res;
-					  CheckSum_2 += Res;
-					USART2_RX_STA++;
-				}
-				else
-				{
-					if(Res ==   CheckSum_2)
-					{
-						receive2 = 1;
-						USART2_RX_STA|=0x8000;
-					}
-					RecerveFlag = 0;
-				}
-			}
-		} 
-	}   		 
-} 
 
 #if 0
 u8 receive3 = 0;
@@ -397,7 +376,7 @@ void USART3_IRQHandler(void)                	//串口3中断服务程序,雷达数据
 	
 } 
 
-#endif
+#endif */
 
 
  

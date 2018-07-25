@@ -42,10 +42,11 @@
 .\objects\lcd.o: .\User\System\delay.h
 .\objects\lcd.o: .\User\LCD\lcd.h
 .\objects\lcd.o: .\User\GPIO\GPIO.h
-.\objects\lcd.o: .\User\MPU6050\MPU6050.h
-.\objects\lcd.o: .\User\Remote\remote.h
-.\objects\lcd.o: .\User\Timer\timer.h
-.\objects\lcd.o: .\User\Timer\hctl2020.h
+.\objects\lcd.o: .\User\MPU6050.h
+.\objects\lcd.o: .\User\remote.h
+.\objects\lcd.o: .\User\tim.h
+.\objects\lcd.o: .\User\Control\get_info.h
+.\objects\lcd.o: .\User\Control\control.h
 .\objects\lcd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\lcd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\lcd.o: User\LCD\font.h

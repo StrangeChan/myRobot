@@ -29,7 +29,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
- 
+ #include "get_info.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -164,5 +164,23 @@ void SysTick_Handler(void)
   * @}
   */ 
 
+/**
+* @brief This function handles USART1 global interrupt.
+*/
+void USART1_IRQHandler(void)
+{
+  
+}
 
+/**
+* @brief This function handles USART2 global interrupt.
+*/
+void USART2_IRQHandler(void)
+{
+ 
+}
+void USART3_IRQHandler(void)
+{
+ 
+}
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

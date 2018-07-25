@@ -44,8 +44,8 @@
 .\objects\findball.o: .\User\Control\control.h
 .\objects\findball.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\findball.o: .\User\GPIO\GPIO.h
-.\objects\findball.o: .\User\MPU6050\MPU6050.h
-.\objects\findball.o: .\User\Remote\remote.h
-.\objects\findball.o: .\User\Timer\timer.h
-.\objects\findball.o: .\User\Timer\hctl2020.h
+.\objects\findball.o: .\User\MPU6050.h
+.\objects\findball.o: .\User\remote.h
+.\objects\findball.o: .\User\tim.h
+.\objects\findball.o: User\Control\get_info.h
 .\objects\findball.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

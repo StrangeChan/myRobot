@@ -3138,6 +3138,9 @@ void LCD_Show_position(void)
 	LCD_ShowxNum(130,380,integer,3,16,0);
 	LCD_ShowChar(130+25,380,'.',16,0);
 	LCD_ShowxNum(130+36,380,decimal,3,16,0);
+	LCD_ShowxNum(130,380,integer,3,16,0);
+	LCD_ShowChar(130+25,380,'.',16,0);
+	LCD_ShowxNum(130+36,380,decimal,3,16,0);
 				
 }
 

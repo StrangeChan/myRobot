@@ -748,11 +748,6 @@
               </FileOption>
             </File>
             <File>
-              <FileName>remote.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\User\Remote\remote.c</FilePath>
-            </File>
-            <File>
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\User\System\delay.c</FilePath>
@@ -778,29 +773,9 @@
               <FilePath>.\User\main.c</FilePath>
             </File>
             <File>
-              <FileName>PWM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\User\PWM\PWM.c</FilePath>
-            </File>
-            <File>
               <FileName>EXIT.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\User\GPIO\EXIT.c</FilePath>
-            </File>
-            <File>
-              <FileName>hctl2020.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\User\Timer\hctl2020.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\User\Timer\timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>mpu6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\User\MPU6050\mpu6050.c</FilePath>
             </File>
             <File>
               <FileName>control.c</FileName>
@@ -811,6 +786,36 @@
               <FileName>FindBall.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\User\Control\FindBall.c</FilePath>
+            </File>
+            <File>
+              <FileName>tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>PWM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\PWM.c</FilePath>
+            </File>
+            <File>
+              <FileName>remote.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\remote.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\mpu6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>get_info.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\Control\get_info.c</FilePath>
             </File>
           </Files>
         </Group>

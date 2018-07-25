@@ -1236,8 +1236,8 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-F (.\User\stm32f4xx_it.c)(0x59955F12)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f4xx_it.o --omf_browse .\objects\stm32f4xx_it.crf --depend .\objects\stm32f4xx_it.d)
-I (User\stm32f4xx_it.h)(0x59955F12)
+F (.\User\stm32f4xx_it.c)(0x5B58B853)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f4xx_it.o --omf_browse .\objects\stm32f4xx_it.crf --depend .\objects\stm32f4xx_it.d)
+I (User\stm32f4xx_it.h)(0x5B58AC35)
 I (User\stm32f4xx.h)(0x59955F12)
 I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -1273,6 +1273,19 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
+I (.\User\Control\get_info.h)(0x5B58B856)
+I (.\User\tim.h)(0x5B58A4A9)
+I (.\User\System\sys.h)(0x59955F12)
+I (.\User\LCD\lcd.h)(0x5AD8BDEE)
+I (.\User\Control\control.h)(0x5B58B983)
+I (.\User\System\usart.h)(0x5B58BF1B)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+I (.\User\System\delay.h)(0x59955F12)
+I (.\User\GPIO\GPIO.h)(0x5B585D8D)
+I (.\User\MPU6050.h)(0x5B58A248)
+I (.\User\remote.h)(0x59955F12)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 F (.\User\system_stm32f4xx.c)(0x59955F12)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
 I (User\stm32f4xx.h)(0x59955F12)
 I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
@@ -1309,7 +1322,7 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-F (.\User\LCD\lcd.c)(0x5AD8BE26)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
+F (.\User\LCD\lcd.c)(0x5AE08463)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
 I (User\LCD\lcd.h)(0x5AD8BDEE)
 I (.\User\System\sys.h)(0x59955F12)
 I (.\User\stm32f4xx.h)(0x59955F12)
@@ -1346,59 +1359,19 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (.\User\Control\control.h)(0x5ADF2B3C)
-I (.\User\System\usart.h)(0x5AD22C7A)
+I (.\User\Control\control.h)(0x5B58B983)
+I (.\User\System\usart.h)(0x5B58BF1B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\User\System\delay.h)(0x59955F12)
 I (.\User\LCD\lcd.h)(0x5AD8BDEE)
-I (.\User\GPIO\GPIO.h)(0x5AD76AF7)
-I (.\User\MPU6050\MPU6050.h)(0x59955F12)
-I (.\User\Remote\remote.h)(0x59955F12)
-I (.\User\Timer\timer.h)(0x5AD608E6)
-I (.\User\Timer\hctl2020.h)(0x5AD4CB72)
+I (.\User\GPIO\GPIO.h)(0x5B585D8D)
+I (.\User\MPU6050.h)(0x5B58A248)
+I (.\User\remote.h)(0x59955F12)
+I (.\User\tim.h)(0x5B58A4A9)
+I (.\User\Control\get_info.h)(0x5B58B856)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (User\LCD\font.h)(0x59955F12)
-F (.\User\Remote\remote.c)(0x59955F12)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\remote.o --omf_browse .\objects\remote.crf --depend .\objects\remote.d)
-I (User\Remote\remote.h)(0x59955F12)
-I (.\User\System\sys.h)(0x59955F12)
-I (.\User\stm32f4xx.h)(0x59955F12)
-I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
-I (.\User\system_stm32f4xx.h)(0x59955F12)
-I (.\User\stm32f4xx_conf.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (.\User\System\delay.h)(0x59955F12)
-I (.\User\System\usart.h)(0x5AD22C7A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 F (.\User\System\delay.c)(0x5AD224DF)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
 I (User\System\delay.h)(0x59955F12)
 I (.\User\System\sys.h)(0x59955F12)
@@ -1472,7 +1445,7 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-F (.\User\System\usart.c)(0x5ADA0FD9)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
+F (.\User\System\usart.c)(0x5B58BA1B)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
 I (User\System\sys.h)(0x59955F12)
 I (.\User\stm32f4xx.h)(0x59955F12)
 I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
@@ -1508,10 +1481,10 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (User\System\usart.h)(0x5AD22C7A)
+I (User\System\usart.h)(0x5B58BF1B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-F (.\User\GPIO\GPIO.c)(0x5AD23282)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\gpio.o --omf_browse .\objects\gpio.crf --depend .\objects\gpio.d)
-I (User\GPIO\GPIO.h)(0x5AD76AF7)
+F (.\User\GPIO\GPIO.c)(0x5B585D8A)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\gpio.o --omf_browse .\objects\gpio.crf --depend .\objects\gpio.d)
+I (User\GPIO\GPIO.h)(0x5B585D8D)
 I (.\User\System\sys.h)(0x59955F12)
 I (.\User\stm32f4xx.h)(0x59955F12)
 I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
@@ -1547,7 +1520,7 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-F (.\User\main.c)(0x5ADEF43D)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\User\main.c)(0x5B58B848)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (User\stm32f4xx.h)(0x59955F12)
 I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
@@ -1583,62 +1556,21 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (.\User\Timer\HCTL2020.h)(0x5AD4CB72)
+I (User\pwm.h)(0x5B58A4B5)
 I (.\User\System\sys.h)(0x59955F12)
-I (.\User\PWM\pwm.h)(0x5AD36EAA)
-I (.\User\Remote\remote.h)(0x59955F12)
+I (User\remote.h)(0x59955F12)
 I (.\User\GPIO\EXIT.h)(0x5AD36EAA)
-I (.\User\Control\control.h)(0x5ADF2B3C)
-I (.\User\System\usart.h)(0x5AD22C7A)
+I (.\User\Control\control.h)(0x5B58B983)
+I (.\User\System\usart.h)(0x5B58BF1B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\User\System\delay.h)(0x59955F12)
 I (.\User\LCD\lcd.h)(0x5AD8BDEE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
-I (.\User\GPIO\GPIO.h)(0x5AD76AF7)
-I (.\User\MPU6050\MPU6050.h)(0x59955F12)
-I (.\User\Timer\timer.h)(0x5AD608E6)
+I (.\User\GPIO\GPIO.h)(0x5B585D8D)
+I (.\User\MPU6050.h)(0x5B58A248)
+I (.\User\tim.h)(0x5B58A4A9)
+I (.\User\Control\get_info.h)(0x5B58B856)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
-F (.\User\PWM\PWM.c)(0x5AD36C74)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\pwm.o --omf_browse .\objects\pwm.crf --depend .\objects\pwm.d)
-I (User\PWM\PWM.h)(0x5AD36EAA)
-I (.\User\System\sys.h)(0x59955F12)
-I (.\User\stm32f4xx.h)(0x59955F12)
-I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
-I (.\User\system_stm32f4xx.h)(0x59955F12)
-I (.\User\stm32f4xx_conf.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (.\User\GPIO\GPIO.h)(0x5AD76AF7)
-I (.\User\System\usart.h)(0x5AD22C7A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (.\User\System\delay.h)(0x59955F12)
 F (.\User\GPIO\EXIT.c)(0x5AD36FB1)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\exit.o --omf_browse .\objects\exit.crf --depend .\objects\exit.d)
 I (User\GPIO\EXIT.h)(0x5AD36EAA)
 I (.\User\System\sys.h)(0x59955F12)
@@ -1676,12 +1608,12 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (User\GPIO\GPIO.h)(0x5AD76AF7)
+I (User\GPIO\GPIO.h)(0x5B585D8D)
 I (.\User\System\delay.h)(0x59955F12)
-I (.\User\System\usart.h)(0x5AD22C7A)
+I (.\User\System\usart.h)(0x5B58BF1B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-F (.\User\Timer\hctl2020.c)(0x5AD4CB5E)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\hctl2020.o --omf_browse .\objects\hctl2020.crf --depend .\objects\hctl2020.d)
-I (User\Timer\HCTL2020.h)(0x5AD4CB72)
+F (.\User\Control\control.c)(0x5B58A7CD)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
+I (User\Control\control.h)(0x5B58B983)
 I (.\User\System\sys.h)(0x59955F12)
 I (.\User\stm32f4xx.h)(0x59955F12)
 I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
@@ -1717,150 +1649,21 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (.\User\System\delay.h)(0x59955F12)
-I (.\User\System\usart.h)(0x5AD22C7A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-F (.\User\Timer\timer.c)(0x5ADF4075)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
-I (User\Timer\timer.h)(0x5AD608E6)
-I (.\User\System\sys.h)(0x59955F12)
-I (.\User\stm32f4xx.h)(0x59955F12)
-I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
-I (.\User\system_stm32f4xx.h)(0x59955F12)
-I (.\User\stm32f4xx_conf.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (User\Timer\hctl2020.h)(0x5AD4CB72)
-I (.\User\LCD\lcd.h)(0x5AD8BDEE)
-I (.\User\Control\control.h)(0x5ADF2B3C)
-I (.\User\System\usart.h)(0x5AD22C7A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (.\User\System\delay.h)(0x59955F12)
-I (.\User\GPIO\GPIO.h)(0x5AD76AF7)
-I (.\User\MPU6050\MPU6050.h)(0x59955F12)
-I (.\User\Remote\remote.h)(0x59955F12)
-I (.\User\Timer\timer.h)(0x5AD608E6)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
-F (.\User\MPU6050\mpu6050.c)(0x59955F12)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\mpu6050.o --omf_browse .\objects\mpu6050.crf --depend .\objects\mpu6050.d)
-I (User\MPU6050\MPU6050.h)(0x59955F12)
-I (.\User\System\usart.h)(0x5AD22C7A)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
-I (.\User\stm32f4xx_conf.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
-I (.\User\stm32f4xx.h)(0x59955F12)
-I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
-I (.\User\system_stm32f4xx.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (.\User\System\sys.h)(0x59955F12)
-I (.\User\System\delay.h)(0x59955F12)
-F (.\User\Control\control.c)(0x5ADF3FA8)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
-I (User\Control\control.h)(0x5ADF2B3C)
-I (.\User\System\sys.h)(0x59955F12)
-I (.\User\stm32f4xx.h)(0x59955F12)
-I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
-I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
-I (.\User\system_stm32f4xx.h)(0x59955F12)
-I (.\User\stm32f4xx_conf.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
-I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (.\User\System\usart.h)(0x5AD22C7A)
+I (.\User\System\usart.h)(0x5B58BF1B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\User\System\delay.h)(0x59955F12)
 I (.\User\LCD\lcd.h)(0x5AD8BDEE)
-I (.\User\Control\control.h)(0x5ADF2B3C)
+I (.\User\Control\control.h)(0x5B58B983)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
-I (.\User\GPIO\GPIO.h)(0x5AD76AF7)
-I (.\User\MPU6050\MPU6050.h)(0x59955F12)
-I (.\User\Remote\remote.h)(0x59955F12)
-I (.\User\Timer\timer.h)(0x5AD608E6)
-I (.\User\Timer\hctl2020.h)(0x5AD4CB72)
+I (.\User\GPIO\GPIO.h)(0x5B585D8D)
+I (.\User\MPU6050.h)(0x5B58A248)
+I (.\User\remote.h)(0x59955F12)
+I (.\User\tim.h)(0x5B58A4A9)
+I (User\Control\get_info.h)(0x5B58B856)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
-F (.\User\Control\FindBall.c)(0x5AD9D1D7)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\findball.o --omf_browse .\objects\findball.crf --depend .\objects\findball.d)
+F (.\User\Control\FindBall.c)(0x5B58C1A2)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\findball.o --omf_browse .\objects\findball.crf --depend .\objects\findball.d)
 I (User\Control\FindBall.h)(0x5AD9D1D7)
-I (User\Control\control.h)(0x5ADF2B3C)
+I (User\Control\control.h)(0x5B58B983)
 I (.\User\System\sys.h)(0x59955F12)
 I (.\User\stm32f4xx.h)(0x59955F12)
 I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
@@ -1896,16 +1699,284 @@ I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
 I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
-I (.\User\System\usart.h)(0x5AD22C7A)
+I (.\User\System\usart.h)(0x5B58BF1B)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
 I (.\User\System\delay.h)(0x59955F12)
 I (.\User\LCD\lcd.h)(0x5AD8BDEE)
-I (.\User\Control\control.h)(0x5ADF2B3C)
+I (.\User\Control\control.h)(0x5B58B983)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
-I (.\User\GPIO\GPIO.h)(0x5AD76AF7)
-I (.\User\MPU6050\MPU6050.h)(0x59955F12)
-I (.\User\Remote\remote.h)(0x59955F12)
-I (.\User\Timer\timer.h)(0x5AD608E6)
-I (.\User\Timer\hctl2020.h)(0x5AD4CB72)
+I (.\User\GPIO\GPIO.h)(0x5B585D8D)
+I (.\User\MPU6050.h)(0x5B58A248)
+I (.\User\remote.h)(0x59955F12)
+I (.\User\tim.h)(0x5B58A4A9)
+I (User\Control\get_info.h)(0x5B58B856)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
+F (.\User\tim.c)(0x5B58B93B)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\tim.o --omf_browse .\objects\tim.crf --depend .\objects\tim.d)
+I (User\tim.h)(0x5B58A4A9)
+I (.\User\System\sys.h)(0x59955F12)
+I (.\User\stm32f4xx.h)(0x59955F12)
+I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
+I (.\User\system_stm32f4xx.h)(0x59955F12)
+I (.\User\stm32f4xx_conf.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
+I (.\User\LCD\lcd.h)(0x5AD8BDEE)
+I (.\User\Control\control.h)(0x5B58B983)
+I (.\User\System\usart.h)(0x5B58BF1B)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+I (.\User\System\delay.h)(0x59955F12)
+I (.\User\GPIO\GPIO.h)(0x5B585D8D)
+I (.\User\MPU6050.h)(0x5B58A248)
+I (.\User\remote.h)(0x59955F12)
+I (.\User\tim.h)(0x5B58A4A9)
+I (.\User\Control\get_info.h)(0x5B58B856)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
+F (.\User\PWM.c)(0x5B58A4B1)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\pwm.o --omf_browse .\objects\pwm.crf --depend .\objects\pwm.d)
+I (User\PWM.h)(0x5B58A4B5)
+I (.\User\System\sys.h)(0x59955F12)
+I (.\User\stm32f4xx.h)(0x59955F12)
+I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
+I (.\User\system_stm32f4xx.h)(0x59955F12)
+I (.\User\stm32f4xx_conf.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
+I (.\User\GPIO\GPIO.h)(0x5B585D8D)
+I (.\User\System\usart.h)(0x5B58BF1B)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+I (.\User\System\delay.h)(0x59955F12)
+F (.\User\remote.c)(0x5B58C1B8)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\remote.o --omf_browse .\objects\remote.crf --depend .\objects\remote.d)
+I (User\remote.h)(0x59955F12)
+I (.\User\System\sys.h)(0x59955F12)
+I (.\User\stm32f4xx.h)(0x59955F12)
+I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
+I (.\User\system_stm32f4xx.h)(0x59955F12)
+I (.\User\stm32f4xx_conf.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
+I (.\User\System\delay.h)(0x59955F12)
+I (.\User\System\usart.h)(0x5B58BF1B)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+F (.\User\mpu6050.c)(0x5B58A245)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\mpu6050.o --omf_browse .\objects\mpu6050.crf --depend .\objects\mpu6050.d)
+I (User\MPU6050.h)(0x5B58A248)
+I (.\User\System\usart.h)(0x5B58BF1B)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+I (.\User\stm32f4xx_conf.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
+I (.\User\stm32f4xx.h)(0x59955F12)
+I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
+I (.\User\system_stm32f4xx.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
+I (.\User\System\sys.h)(0x59955F12)
+I (.\User\System\delay.h)(0x59955F12)
+F (.\User\encoder.c)(0x5B58B93B)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\encoder.o --omf_browse .\objects\encoder.crf --depend .\objects\encoder.d)
+I (User\encoder.h)(0x5B589F94)
+I (.\User\System\sys.h)(0x59955F12)
+I (.\User\stm32f4xx.h)(0x59955F12)
+I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
+I (.\User\system_stm32f4xx.h)(0x59955F12)
+I (.\User\stm32f4xx_conf.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
+I (.\User\LCD\lcd.h)(0x5AD8BDEE)
+I (.\User\Control\control.h)(0x5B58B983)
+I (.\User\System\usart.h)(0x5B58BF1B)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+I (.\User\System\delay.h)(0x59955F12)
+I (.\User\GPIO\GPIO.h)(0x5B585D8D)
+I (.\User\MPU6050.h)(0x5B58A248)
+I (.\User\remote.h)(0x59955F12)
+I (.\User\tim.h)(0x5B58A4A9)
+I (.\User\Control\get_info.h)(0x5B58B856)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
+F (.\User\Control\get_info.c)(0x5B58BEFF)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.\Libraries\STM32F40x_StdPeriph_Driver\inc -I.\Libraries\CMSIS -I.\User -I.\User\LCD -I.\User\Remote -I.\User\System -I.\User\GPIO -I.\User\PWM -I.\User\Timer -I.\User\MPU6050 -I.\User\Control-I E:\myCODE\GitHub\myRobot\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\get_info.o --omf_browse .\objects\get_info.crf --depend .\objects\get_info.d)
+I (User\Control\get_info.h)(0x5B58B856)
+I (.\User\tim.h)(0x5B58A4A9)
+I (.\User\System\sys.h)(0x59955F12)
+I (.\User\stm32f4xx.h)(0x59955F12)
+I (.\Libraries\CMSIS\core_cm4.h)(0x59955F12)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (.\Libraries\CMSIS\core_cmInstr.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cmFunc.h)(0x55093C04)
+I (.\Libraries\CMSIS\core_cm4_simd.h)(0x59955F12)
+I (.\User\system_stm32f4xx.h)(0x59955F12)
+I (.\User\stm32f4xx_conf.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_adc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_crc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dma.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_exti.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_flash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_gpio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_i2c.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_iwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_pwr.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rcc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rtc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_sdio.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_spi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_syscfg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_tim.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_usart.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_wwdg.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\misc.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_cryp.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_hash.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_rng.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x59955F12)
+I (.\Libraries\STM32F40x_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x59955F12)
+I (.\User\LCD\lcd.h)(0x5AD8BDEE)
+I (.\User\Control\control.h)(0x5B58B983)
+I (.\User\System\usart.h)(0x5B58BF1B)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+I (.\User\System\delay.h)(0x59955F12)
+I (.\User\GPIO\GPIO.h)(0x5B585D8D)
+I (.\User\MPU6050.h)(0x5B58A248)
+I (.\User\remote.h)(0x59955F12)
+I (.\User\Control\get_info.h)(0x5B58B856)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 F (.\Doc\readme.txt)(0x5A82AAE1)()
