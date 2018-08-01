@@ -54,13 +54,13 @@ void Remote_Init(void)
 	TIM_Cmd(TIM1, ENABLE);									//使能定时器1
 
 	NVIC_InitStructure.NVIC_IRQChannel = TIM1_CC_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1; //抢占优先级1
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; //抢占优先级1
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;		  //子优先级3
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			  //IRQ通道使能
 	NVIC_Init(&NVIC_InitStructure);							  //初始化NVIC寄存器
 
 	NVIC_InitStructure.NVIC_IRQChannel = TIM1_UP_TIM10_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1; //抢占优先级3
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0; //抢占优先级3
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;		  //子优先级2
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			  //IRQ通道使能
 	NVIC_Init(&NVIC_InitStructure);							  //初始化NVIC寄存器

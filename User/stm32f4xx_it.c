@@ -65,6 +65,7 @@ void HardFault_Handler(void)
   /* Go to infinite loop when Hard Fault exception occurs */
   while (1)
   {
+	  printf("err");
   }
 }
 
@@ -164,23 +165,5 @@ void SysTick_Handler(void)
   * @}
   */ 
 
-/**
-* @brief This function handles USART1 global interrupt.
-*/
-void USART1_IRQHandler(void)
-{
-  
-}
 
-/**
-* @brief This function handles USART2 global interrupt.
-*/
-void USART2_IRQHandler(void)
-{
- 
-}
-void USART3_IRQHandler(void)
-{
- 
-}
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

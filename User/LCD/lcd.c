@@ -2910,13 +2910,13 @@ void LCD_Show_lcj(void)
 //显示轮子速度
 void LCD_Show_v(void)
 {
-	u16 integer=0,decimal=0;
-	float tem;
+	int64_t integer=0;
+	int64_t tem;
 	u8 i;
 
 	for(i = 0; i <= 3; i++)
 	{
-		tem = BasketballRobot.v[i];
+		tem = BasketballRobot.encoderCount[i];
 		if(tem < 0){
 			tem = -tem;
 			switch(i)
@@ -2948,23 +2948,23 @@ void LCD_Show_v(void)
 			}
 		}
 		integer = (u32)tem;
-		decimal = (u32)((tem-integer)*1000);
+		//decimal = (u32)((tem-integer)*1000);
 		
 		switch (i){
 			case 0:
-				LCD_ShowxNum(90,200,integer,3,16,0);
-				LCD_ShowChar(90+25,200,'.',16,0);
-				LCD_ShowxNum(90+36,200,decimal,3,16,0);
+				LCD_ShowxNum(90,200,integer,7,16,0);
+//				LCD_ShowChar(90+25,200,'.',16,0);
+//				LCD_ShowxNum(90+36,200,decimal,3,16,0);
 				break;
 			case 1:
-				LCD_ShowxNum(90,220,integer,3,16,0);
-				LCD_ShowChar(90+25,220,'.',16,0);
-				LCD_ShowxNum(90+36,220,decimal,3,16,0);
+				LCD_ShowxNum(90,220,integer,7,16,0);
+//				LCD_ShowChar(90+25,220,'.',16,0);
+//				LCD_ShowxNum(90+36,220,decimal,3,16,0);
 				break;
 			case 2:
-				LCD_ShowxNum(90,240,integer,3,16,0);
-				LCD_ShowChar(90+25,240,'.',16,0);
-				LCD_ShowxNum(90+36,240,decimal,3,16,0);
+				LCD_ShowxNum(90,240,integer,7,16,0);
+//				LCD_ShowChar(90+25,240,'.',16,0);
+//				LCD_ShowxNum(90+36,240,decimal,3,16,0);
 				break;
 		}
 	}
@@ -3123,7 +3123,7 @@ void LCD_Show_position(void)
 	LCD_ShowChar(130+25,360,'.',16,0);
 	LCD_ShowxNum(130+36,360,decimal,3,16,0);
 	
-	tem = BasketballRobot.ThetaR;
+	tem = BasketballRobot.ThetaD;
 	if(tem<0)
 	{
 		tem = -tem;
@@ -3135,12 +3135,14 @@ void LCD_Show_position(void)
 	}
 	integer = (u32)tem;
 	decimal = (u32)((tem-integer)*1000);
+	//printf("11 :   %d \r\n",TIM5->CNT);
 	LCD_ShowxNum(130,380,integer,3,16,0);
+	//printf("12 :   %d \r\n",TIM5->CNT);
 	LCD_ShowChar(130+25,380,'.',16,0);
 	LCD_ShowxNum(130+36,380,decimal,3,16,0);
-	LCD_ShowxNum(130,380,integer,3,16,0);
-	LCD_ShowChar(130+25,380,'.',16,0);
-	LCD_ShowxNum(130+36,380,decimal,3,16,0);
+//	LCD_ShowxNum(130,380,integer,3,16,0);
+//	LCD_ShowChar(130+25,380,'.',16,0);
+//	LCD_ShowxNum(130+36,380,decimal,3,16,0);
 				
 }
 

@@ -32,6 +32,12 @@
 #define DIS_RADAR 2500	//篮筐雷达定位距离
 #define DIS_VISION 280	//篮筐视觉定位距离
 
+#define Origin_X 0		//视觉屏幕原点x坐标，现假设
+#define Origin_Y 0		//视觉屏幕原点y坐标，待修改
+
+#define Correction_X -0.3f	//球场坐标修正值x
+#define Correction_Y 0.3f	//球场坐标修正值y
+
 //PD参数
 typedef struct
 {
@@ -45,6 +51,8 @@ struct ROBOT
 	float Y;		//机器人在坐标系中y坐标
 	//float x;		//机器人在坐标系中x坐标
 	//float y;		//机器人在坐标系中y坐标
+	float PX;		//点的x坐标
+	float PY;		//点的y坐标
 	float ThetaR;	//机器人正方向和y轴夹角 弧度
 	float ThetaD;	//机器人正方向和y轴夹角 角度
 
@@ -56,12 +64,13 @@ struct ROBOT
 	PD yPD;
 	PD wPD;
 	
-	float w[3];		//编码器的实际计数
-	float v[3];		//编码器所得速度
+	float w[3];				//编码器速度
+	int64_t encoderCount[3];	//编码器总计数
 	
 	float Velocity[3];	//轮子的速度
+	
 	float LastTheta;	//上一时刻，机器人theta角
-	float theta_offset;	//角度偏差矫正
+	float theta_offset[3];	//角度偏差矫正
 };
 
 //接收雷达数据，极坐标
@@ -140,4 +149,5 @@ static float adjustVx_PD(float D_X);			//根据偏差大小调整X轴速度
 void RobotRotate(float theta);	//自旋运动，根据误差角度，自动调节
 
 void RobotGoTo(float X_I,float Y_I,float Theta_I);	//行至指定坐标
+void RobotGoAvoidance(void);	//避障直行
 #endif

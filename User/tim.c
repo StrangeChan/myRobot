@@ -39,16 +39,16 @@ void TIM5_Init(u32 arr,u32 psc)
 
 
 //定时器2中断服务函数，定时读取编码器，获取机器人位置
-void TIM2_IRQHandler(void)
-{
+//void TIM2_IRQHandler(void)
+//{
 
-	//printf("中断");
-	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET) 
-	{	
-		
-	}
-	TIM_ClearITPendingBit(TIM2,TIM_IT_Update);  //清除中断标志位
-	
-	
-}
+//	//printf("中断");
+//	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET) 
+//	{	
+//		
+//	}
+//	TIM_ClearITPendingBit(TIM2,TIM_IT_Update);  //清除中断标志位
+//	
+//	
+//}
 
