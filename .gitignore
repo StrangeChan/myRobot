@@ -1,9 +1,68 @@
+# Prerequisites
+*.d
 
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+*.lst
 *.crf
-*.o
-*.d
-*.o
+*.axf
+*.htm
 *.lnp
-*.d
-*.o
-Objects/control.o
+*.dep
+*.uvprojx
+*.15201
+*.uvoptx
+*.uvprojx
+*.uvprojx
+*.uvprojx
+*.uvoptx
+*.__i
+*._ia
+.vscode/settings.json

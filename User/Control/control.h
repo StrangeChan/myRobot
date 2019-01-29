@@ -10,6 +10,7 @@
 #include "remote.h"
 #include "tim.h"
 #include "get_info.h"
+#include "EXIT.h"
 #include <math.h>
 
 #define PI 		3.141592654f
@@ -21,15 +22,16 @@
 #define ENCODER_R 	0.0275f		//编码器轮子半径
 #define RAD	 0.1570796327f		//编码器一个脉冲对应的角度 pi/500/4/0.01
 
-#define MOTOR_L 0.2013f		//轮到机器人中心的距离
+//#define MOTOR_L 0.2013f		//轮到机器人中心的距离
+#define MOTOR_L 1.0f	//轮到机器人中心的距离
 #define MOTOR_R 0.0508f		//轮子的半径
 
 #define MOTOR_STATIC_1 4000		//TIM9 CH1 PE5
 #define MOTOR_STATIC_2 4000  		//TIM9 CH2 PE6
 
-#define RADAR_MID 268	//雷达定位中心
-#define VISION_MID 320	//视觉定位中心
-#define DIS_RADAR 2500	//篮筐雷达定位距离
+#define RADAR_MID 268    //雷达定位中心
+#define VISION_MID 256	//视觉定位中心
+#define DIS_RADAR 2300	//篮筐雷达定位距离
 #define DIS_VISION 280	//篮筐视觉定位距离
 
 #define Origin_X 0		//视觉屏幕原点x坐标，现假设
@@ -60,11 +62,11 @@ struct ROBOT
 	float Vy;		//机器人在坐标系y方向速度	
 	float W;		//机器人角速度，顺时针正方向
 	
-	PD xPD;			//机器人在坐标系x方向 PD
-	PD yPD;
-	PD wPD;
+//	PD xPD;			//机器人在坐标系x方向 PD
+//	PD yPD;
+//	PD wPD;
 	
-	float w[3];				//编码器速度
+	int16_t  w[3];				//编码器速度
 	int64_t encoderCount[3];	//编码器总计数
 	
 	float Velocity[3];	//轮子的速度
@@ -98,6 +100,8 @@ struct VISION
 	
 	uint32_t X;		//X位置，横轴
 	
+	u8 goBackSign; 	//回位标志
+	
 	u8 State;	//状态
 };
 
@@ -106,7 +110,7 @@ typedef enum
 {
 	STOP = 0,
 	UP,
-	DOWM
+	DOWN
 }shovemotor;	
 
 extern struct ROBOT BasketballRobot;
@@ -130,7 +134,12 @@ void shoveMotor(shovemotor t);	//铲球电机状态
 void Robot_armDown(void);		//机械臂下降
 void Robot_armUp(void);			//机械臂上升
 
+void EXTIX_Disable(shovemotor t);
+void EXTIX_Enable(shovemotor t);
+void RobotArm_exit(shovemotor t);		//通过中断控制机械臂
+
 u8 DownShotUp(void);
+u8 ShotUp(void);
 
 
 //uint8_t GetVisionData(void);		//视觉数据处理
@@ -147,7 +156,8 @@ static float adjustVx_PD(float D_X);			//根据偏差大小调整X轴速度
 
 
 void RobotRotate(float theta);	//自旋运动，根据误差角度，自动调节
-
+void RobotGoBrokenLine(float X_I,float Y_I,float Theta_I,float pointX, float pointY,float pointTheta);
+void RobotGoToAvoid(float X_I, float Y_I, float Theta_I);
 void RobotGoTo(float X_I,float Y_I,float Theta_I);	//行至指定坐标
 void RobotGoAvoidance(void);	//避障直行
 #endif

@@ -10,8 +10,8 @@
 
 void PWM_Init(void)
 {
-	TIM9_CH1_PWM_Init(4000-1,84-1);	//1M/4000=250hz PE5，铲球电机
-	TIM9_CH2_PWM_Init(4000-1,84-1);	//PE6，铲球电机
+	//TIM9_CH1_PWM_Init(1000-1,84-1);	//1M/4000=250hz PE5，铲球电机
+	TIM9_CH2_PWM_Init(1000-1,84-1);	//PE6，铲球电机
 	
 	
 	//TIM5_CH2_PWM_Init(42-1,1-1);		//2MHz    HCTL2020   时钟 PA1
@@ -274,7 +274,7 @@ void TIM3_CH3_PWM_Init(u32 arr,u32 psc)
 
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; 			//选择定时器模式:TIM脉冲宽度调制模式2
  	TIM_OCInitStructure.TIM_OutputNState = TIM_OutputState_Enable; 	//比较输出使能
-	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low; 		//输出极性:TIM输出比较极性低
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High; 		//输出极性:TIM输出比较极性低
 	TIM_OC3Init(TIM3, &TIM_OCInitStructure);  					
 
 	TIM_OC3PreloadConfig(TIM3, TIM_OCPreload_Enable);  			

@@ -11,33 +11,37 @@ void USART1_IRQHandler(void)
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
 	{
 		res1 = USART_ReceiveData(USART1);  //(USART3->DR);	//读取接收到的数据
-		if ((Radar.RX_STA & 0x8000) == 0) //接收未完成
+		if ((Vision.RX_STA & 0x8000) == 0) //接收未完成
 		{
-			Radar.RX_BUF[Radar.RX_STA & 0X3FFF] = res1;
+			Vision.RX_BUF[Vision.RX_STA & 0X3FFF] = res1;
 
-			if ((Radar.RX_STA & 0X3FFF) == 0 && Radar.RX_BUF[0] != '@')
+			if ((Vision.RX_STA & 0X3FFF) == 0 && Vision.RX_BUF[0] != '@')
 				return;
-			if ((Radar.RX_STA & 0X3FFF) == 1 && Radar.RX_BUF[1] != '^')
+			if ((Vision.RX_STA & 0X3FFF) == 1 && Vision.RX_BUF[1] != '^')
 			{
-				Radar.RX_STA = 0;
+				Vision.RX_STA = 0;
 				return;
 			}
-	//		if ((Radar.RX_STA & 0X3FFF) == 2 && Radar.RX_BUF[2] != 'r')
-	//			return;
+			if ((Vision.RX_STA & 0X3FFF) == 2 && Vision.RX_BUF[2] != 'v')
+			{
+				Vision.RX_STA = 0;
+				return;
+			}
 
-			Radar.RX_STA++;
+			Vision.RX_STA++;
 
-			if((Radar.RX_STA & 0X3FFF) == 10)
+			if((Vision.RX_STA & 0X3FFF) == 10)
 			{
 				for (i1 = 0; i1 < 9; i1++)
-					sum1 += Radar.RX_BUF[i1];
-				if (sum1 == Radar.RX_BUF[9])
-					Radar.RX_STA |= 0x8000;
+					sum1 += Vision.RX_BUF[i1];
+				if (sum1 == Vision.RX_BUF[9])
+					Vision.RX_STA |= 0x8000;
 				else
-					Radar.RX_STA=0;
+					Vision.RX_STA=0;
 				sum1 = 0;
 				
 			}
+			
 		}
 	}
 }
@@ -50,6 +54,13 @@ void USART2_IRQHandler(void)
 {
 //	receiveIMUData();
 //	GetYaw();
+	if (USART_GetFlagStatus(USART2, USART_FLAG_ORE) != RESET)
+	{
+
+		USART_ReceiveData(USART2);
+		USART_ClearFlag(USART2, USART_FLAG_ORE);
+
+	}
 	//接收陀螺仪数据
 	if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
 	{
@@ -79,9 +90,51 @@ void USART2_IRQHandler(void)
 	}	
 	
 }
+u8 res3,sum3,i3;
 void USART3_IRQHandler(void)
 {
- 
+	if (USART_GetFlagStatus(USART3, USART_FLAG_ORE) != RESET)
+	{
+
+		USART_ReceiveData(USART3);
+		USART_ClearFlag(USART3, USART_FLAG_ORE);
+
+	}
+	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
+	{
+		res3 = USART_ReceiveData(USART3);  //(USART3->DR);	//读取接收到的数据
+		if ((Radar.RX_STA & 0x8000) == 0) //接收未完成
+		{
+			Radar.RX_BUF[Radar.RX_STA & 0X3FFF] = res3;
+
+			if ((Radar.RX_STA & 0X3FFF) == 0 && Radar.RX_BUF[0] != '@')
+				return;
+			if ((Radar.RX_STA & 0X3FFF) == 1 && Radar.RX_BUF[1] != '^')
+			{
+				Radar.RX_STA = 0;
+				return;
+			}
+			if ((Radar.RX_STA & 0X3FFF) == 2 && Radar.RX_BUF[2] != 'r')
+			{
+				Radar.RX_STA = 0;
+				return;
+			}
+
+			Radar.RX_STA++;
+
+			if((Radar.RX_STA & 0X3FFF) == 10)
+			{
+				for (i3 = 0; i3 < 9; i3++)
+					sum3 += Radar.RX_BUF[i3];
+				if (sum3 == Radar.RX_BUF[9])
+					Radar.RX_STA |= 0x8000;
+				else
+					Radar.RX_STA=0;
+				sum3 = 0;
+				
+			}
+		}
+	}
 }
 
 
@@ -94,12 +147,15 @@ void TIM5_IRQHandler(void)
 	if(TIM_GetITStatus(TIM5,TIM_IT_Update)==SET) 
 	{
 		GetYaw();		
-		ReadEncoder();
+		GetPosition();
 		if(count++==1)
 			LCD_Show_position();
 		
 		if(count %50== 2)
 			LCD_Show_lcj();
+		
+		if(count == 10)
+			LCD_Show_v();
 //		printf("1 :   %d \r\n",TIM5->CNT);
 //		LCD_Show_position();
 //		printf("2 :   %d \r\n",TIM5->CNT);
@@ -110,7 +166,7 @@ void TIM5_IRQHandler(void)
 
 void ReadEncoder(void)
 {
-	//int16_t nEncoder1,nEncoder2,nEncoder3;
+//	int16_t nEncoder1,nEncoder2,nEncoder3;
 	//读取CNT数值后清零
 	BasketballRobot.w[0] = TIM2->CNT;
 	TIM2->CNT = 0;
@@ -130,6 +186,7 @@ void ReadEncoder(void)
 }
 
 //放入串口中断中
+//中断中调用函数会出现问题后舍弃
 void receiveIMUData(void)
 {
 	uint8_t sum=0,i=0,res;
@@ -169,10 +226,24 @@ u8 GetYaw(void)
 		
 	if(USART2_RX_STA&0x8000)	
 	{
-		//(Re_buf [7]<<8| Re_buf [6]))/32768.0*180; 
-		BasketballRobot.ThetaD = ((float)((USART2_RX_BUF[7]<<8)|USART2_RX_BUF[6]))/32768*180;
 		
+		BasketballRobot.LastTheta = BasketballRobot.ThetaD;
+		//(Re_buf [7]<<8| Re_buf [6]))/32768.0*180;
+//		BasketballRobot.theta_offset[0] =  BasketballRobot.theta_offset[1];
+//		BasketballRobot.theta_offset[1] = ((float)((USART2_RX_BUF[7] << 8) | USART2_RX_BUF[6])) / 32768 * 180;
+//		
+//		BasketballRobot.theta_offset[2] = BasketballRobot.theta_offset[1]- BasketballRobot.theta_offset[0];
+//		
+//		if(BasketballRobot.theta_offset[2] > 300)
+//			BasketballRobot.theta_offset[2] -= 360;
+//		if(BasketballRobot.theta_offset[2] < -300)
+//			BasketballRobot.theta_offset[2] += 360;
+//		
+//		BasketballRobot.ThetaD += BasketballRobot.theta_offset[2]/103.0f*90; //90/103.0f*360/(360+8/3) = 0.86736
+//		BasketballRobot.ThetaR = BasketballRobot.ThetaD * PI / 180;
+		BasketballRobot.ThetaD = ((float)((USART2_RX_BUF[7] << 8) | USART2_RX_BUF[6])) / 32768 * 180;
 		BasketballRobot.ThetaR = BasketballRobot.ThetaD * PI / 180;
+		
 		
 		while(BasketballRobot.ThetaR < 0)
 				BasketballRobot.ThetaR  = BasketballRobot.ThetaR + PI + PI;
@@ -201,44 +272,87 @@ u8 GetYaw(void)
 
 
 //坐标转换,里程计定位
+//具体计算推导去看论文
 void GetPosition(void)
 {
-	//根据速度运算球场坐标
+	float nW, nX, nY;
 
-	float nW,nX,nY;
-	
+	float l1, l2, l3; //里程计减去自旋偏差后数值
 
-	float l1,l2,l3;	//里程计减去自旋偏差后数值
-	
 	float theta_inv[2][2]; //角度矩阵
 	
-	//GetYaw();
+	float d_theta;
+	
+	d_theta = BasketballRobot.ThetaD - BasketballRobot.LastTheta;
+	
+	if(d_theta > 300)
+		d_theta -= 360;
+	if(d_theta < -300)
+		d_theta += 360;		
+		
+//	if(GetYaw())
+//	{
+	
 	ReadEncoder();
-	
-	BasketballRobot.LastTheta = BasketballRobot.ThetaR;
-	
-	
+
+	//BasketballRobot.LastTheta = BasketballRobot.ThetaR;
+
 	//theta_inv
-	theta_inv[0][0]= cos(BasketballRobot.ThetaR);	theta_inv[0][1] = -theta_inv[1][0];		
-	theta_inv[1][0]= sin(BasketballRobot.ThetaR);	theta_inv[1][1] = theta_inv[0][0];	
+	theta_inv[0][0] = cos(BasketballRobot.ThetaR);
+	theta_inv[1][0] = sin(BasketballRobot.ThetaR);
+	theta_inv[0][1] = -theta_inv[1][0];	
+	theta_inv[1][1] = theta_inv[0][0];
 	
-	nW = (BasketballRobot.w[0]+BasketballRobot.w[1]+BasketballRobot.w[2])/3.0f;	
+	//BasketballRobot.LastTheta = BasketballRobot.ThetaR;
+	
+//正常使用三个里程计定位
+#if 0
+	
+	nW = (BasketballRobot.w[0] + BasketballRobot.w[1] + BasketballRobot.w[2]) / 3.0f;
+	
+	
 	//除去自传偏差
-	l1 = BasketballRobot.w[0] - nW;	
+	l1 = BasketballRobot.w[0] - nW;
 	l2 = BasketballRobot.w[1] - nW;
 	l3 = BasketballRobot.w[2] - nW;
+
+	//22400 通过实际测试得出 ，所得坐标单位只是大概为1m
+	nX = -l1 / 22400;
+	nY = -(-l2 + l3) / 1.7320508f / 22400;
 	
-	nX = -l1/20000;
-	nY = -(-l2 + l3)/1.7320508f/22400;
+//比赛时里程计损坏，使用两个里程计定位
+#else
 	
-	//nX = 
+	//由陀螺仪得自传偏差
+	nW = d_theta/182*14640;
 	
-	BasketballRobot.X += nX*theta_inv[0][0]+nY*theta_inv[0][1];
-	BasketballRobot.Y += nX*theta_inv[1][0]+nY*theta_inv[1][1];
+	//除去自传偏差
+	l1 = BasketballRobot.w[0] - nW;
+	l2 = BasketballRobot.w[1] - nW;
+	//l3 = BasketballRobot.w[2] - nW;
+
+	nX = -l1 / 22400;
+	nY = (2*l2 + l1) / 1.7320508f / 22400;
+
+
+#endif
+	//nX =
+
+	BasketballRobot.X += nX * theta_inv[0][0] + nY * theta_inv[0][1];
+	BasketballRobot.Y += nX * theta_inv[1][0] + nY * theta_inv[1][1];
 	
+	BasketballRobot.Vx =  100*nX * theta_inv[0][0] + 100*nY * theta_inv[0][1];
+	BasketballRobot.Vy =  100*nX * theta_inv[1][0] + 100*nY * theta_inv[1][1];
+	BasketballRobot.W = nW*100/22400;
+	
+	BasketballRobot.encoderCount[0] += BasketballRobot.w[0];
+	BasketballRobot.encoderCount[1] += BasketballRobot.w[1];
+	BasketballRobot.encoderCount[2] += BasketballRobot.w[2];
 	
 }
 
+//放入串口中断中
+//中断中调用函数会出现问题后舍弃
 void receiveVisionData(void)
 {
 	uint8_t sum=0,i=0,res;
@@ -285,9 +399,10 @@ void receiveVisionData(void)
 u8 GetVisionData(void)
 {	
 	u32 x,d;
-
+	
+//旧通讯协议
+#if 0
 	//receiveVisionData();
-
 	if (Vision.RX_STA&0x8000)
 	{
 		//坐标位置信息
@@ -344,8 +459,46 @@ u8 GetVisionData(void)
 		LCD_ShowNum(30 + 200 + 48 + 8 + 45, 440, Vision.Depth, 4, 16);
 		return 1;
 	}
+//新通讯协议，具体协议见笔记本
+#else
+	if(Vision.RX_STA&0x8000)
+	{
+		x = (Vision.RX_BUF[5]<<8)|Vision.RX_BUF[6];
+		d = (Vision.RX_BUF[7]<<8)|Vision.RX_BUF[8];
+		Vision.RX_STA=0;
+		
+	}
+	if (x < 10 || x > 630 || d < 500)
+	{
+		Vision.State = 0;
+		return 0;
+	}
+
+	else
+	{
+		Vision.X = x;
+		Vision.Depth = d;
+		Vision.State = 1;
+		Vision.goBackSign = Vision.RX_BUF[4];
+		
+		LCD_ShowString(30 + 200, 420, 200, 16, 16, "View :pix");
+		LCD_ShowNum(30 + 200 + 48 + 8 + 45, 420, Vision.X, 4, 16);
+		if(Vision.goBackSign == 'z')
+			LCD_ShowString(30 + 200, 440, 200, 16, 16, "View :Go back");
+		else
+		{
+			LCD_ShowString(30 + 200, 440, 200, 16, 16, "View :length");
+			LCD_ShowNum(30 + 200 + 48 + 8 + 45, 440, Vision.Depth, 4, 16);
+		}
+//		LCD_ShowString(30 + 200, 440, 200, 16, 16, "View :length");
+//		LCD_ShowNum(30 + 200 + 48 + 8 + 45, 440, Vision.Depth, 4, 16);
+		return 1;
+	}
+#endif	
 }
 
+//放入串口中断中
+//中断中调用函数会出现问题后舍弃
 void receiveRadarData(void)
 {
 	uint8_t sum=0,i=0,res;
@@ -410,7 +563,8 @@ void receiveRadarData(void)
 //激光处理数据
 u8 GetRadarData(void)
 {
-	#if 0
+//旧 
+#if 0
 {
 	if(Radar.RX_STA&0x8000)
 	{					   
@@ -468,7 +622,8 @@ u8 GetRadarData(void)
 		return 1;
 	}	
 }
-	#else
+//新
+#else
 	u32 a,d;
 	
 	if(Radar.RX_STA&0x8000)
@@ -476,24 +631,24 @@ u8 GetRadarData(void)
 		a = (Radar.RX_BUF[3]<<8)|Radar.RX_BUF[4];
 		d = (Radar.RX_BUF[5]<<8)|Radar.RX_BUF[6];
 		Radar.RX_STA=0;
+		
 	}
-//	if(a<240 || a >300||d>4000||d<10) //原来&&
-//	{
-//		Radar.State = 0;
-//		return 0;
-//	}	
-//	else
-//	{
+	if(a<240 || a >300||d>4000||d<10) //原来&&
+	{
+		Radar.State = 0;
+		return 0;
+	}	
+	else
+	{
 		Radar.Angle = a;
 		Radar.Distance = d;
 		Radar.State = 1;
-		Radar.RX_STA=0;
 		LCD_ShowString(30+200,460,200,16,16,"Radar:rad");	
 		LCD_ShowNum(30+200+48+8+45,460,Radar.Angle,4,16);		
 		LCD_ShowString(30+200,480,200,16,16,"Radar:length");	
 		LCD_ShowNum(30+200+48+8+45,480,Radar.Distance,4,16);
 		return 1;
-//	}
-	#endif
+	}
+#endif
 }
 

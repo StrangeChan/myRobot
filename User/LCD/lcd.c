@@ -701,7 +701,7 @@ void LCD_Init(void)
 		FSMC_Bank1E->BWTR[6]|=10<<0;	//地址建立时间（ADDSET）为10个HCLK =60ns  	 
 		FSMC_Bank1E->BWTR[6]|=12<<8; 	//数据保存时间为6ns*13个HCLK=96ns
 	}
-	printf(" LCD ID:%x\r\n",lcddev.id); //打印LCD ID  
+	//printf(" LCD ID:%x\r\n",lcddev.id); //打印LCD ID  
 	if(lcddev.id==0X9341)	//9341初始化
 	{	 
 		LCD_WR_REG(0xCF);  
@@ -2818,9 +2818,9 @@ void LCD_Show_Title(void)						//显示内容框架
 {
 	POINT_COLOR=BLUE;//设置字体为蓝色 
  	LCD_ShowString(30,170,200,16,16,"UPLOAD ON ");	 
- 	LCD_ShowString(30,200,200,16,16,"V1:               m/s");	
- 	LCD_ShowString(30,220,200,16,16,"V2:               m/s");	
- 	LCD_ShowString(30,240,200,16,16,"V3:               m/s");	
+ 	LCD_ShowString(30,200,200,16,16,"V1:               ");	
+ 	LCD_ShowString(30,220,200,16,16,"V2:               ");	
+ 	LCD_ShowString(30,240,200,16,16,"V3:              ");	
  	LCD_ShowString(30+200,200,200,16,16,"LCJ1:                 ");	
  	LCD_ShowString(30+200,220,200,16,16,"LCJ2:                 ");	
  	LCD_ShowString(30+200,240,200,16,16,"LCJ3:                 ");	 
@@ -2836,13 +2836,8 @@ void LCD_Show_Title(void)						//显示内容框架
 	LCD_ShowString(30,360,200,16,16," Y ");	
 	LCD_ShowString(30,380,200,16,16," Theta ");	
 	
-	LCD_ShowString(30,50+400,200,16,16,"Explorer STM32F4");	
-	LCD_ShowString(30,70+400,200,16,16,"REMOTE TEST");	
-	LCD_ShowString(30,90+400,200,16,16,"ATOM@ALIENTEK");
-	LCD_ShowString(30,110+400,200,16,16,"2014/5/7");
-   	LCD_ShowString(30,130+400,200,16,16,"KEYVAL:");	
-   	LCD_ShowString(30,150+400,200,16,16,"KEYCNT:");	
-   	LCD_ShowString(30,170+400,200,16,16,"SYMBOL:");	    
+	LCD_ShowString(30,50+400,200,16,16,"std robot");	
+   
  				
 	LCD_ShowString(30+200,320,200,16,16,"chengxu");
 	LCD_ShowString(30+200,340,200,16,16,"qiu");
